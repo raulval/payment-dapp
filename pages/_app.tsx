@@ -1,6 +1,13 @@
-import '../styles/globals.css'
-import type { AppProps } from 'next/app'
+import type { AppProps } from "next/app";
+import { Toaster } from "react-hot-toast";
+import { DataProvider } from "../contexts/DataContext";
+import "../styles/globals.css";
 
 export default function App({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
+  return (
+    <DataProvider>
+      <Toaster />
+      <Component {...pageProps} />
+    </DataProvider>
+  );
 }
